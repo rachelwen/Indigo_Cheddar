@@ -1,5 +1,5 @@
-function Firework() {
-  this.firework = new Particle(random(width), height);
+function Firework(soundVel) {
+  this.firework = new Particle(random(width), height,soundVel);
 
   this.update = function() {
     this.firework.applyForce(gravity)
