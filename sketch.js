@@ -34,18 +34,15 @@ function draw() {
   
  
   let soundVel =  map(vol,0,0.5,2,10);
+
  
-  if (random(1)<0.5){
+  if (random(1)<0.9){
     fireworks.push(new Firework(-soundVel));
    }
-
-  if (random(1)<0.1){
-   fireworks.push(new Firework(-soundVel));
-  }
   for (let i = fireworks.length-1; i >=0; i --){
     fireworks[i].update();
-    setTimeout(fireworks[i].show(),2000);
-    //fireworks[i].show();
+    //setTimeout(fireworks[i].show(),2000);
+    fireworks[i].show();
   }
 }
 

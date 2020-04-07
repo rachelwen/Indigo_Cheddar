@@ -10,6 +10,4 @@ this.show = function(){
   this.firework.show();
 }
 
-
-
 }
