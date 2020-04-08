@@ -1,12 +1,14 @@
-function Firework(soundVel) {
+class Firework{
+  constructor(soundVel) {
   this.firework = new Particle(random(width), height,soundVel);
+  }
 
-  this.update = function() {
+  update() {
     this.firework.applyForce(gravity)
     this.firework.update()
   }
 
-this.show = function(){
+show(){
   this.firework.show();
 }
 
