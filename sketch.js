@@ -7,15 +7,14 @@ let button;
 let vol;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(600, 400);
   song = loadSound("jordan.mp3",loaded());
   amp = new p5.Amplitude();
   
   
   gravity = createVector(0,0.2);
   
-  stroke(255)
-  strokeWeight(4)
+  
  
 }
 
