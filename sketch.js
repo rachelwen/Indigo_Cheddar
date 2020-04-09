@@ -14,9 +14,9 @@ function setup() {
   song = loadSound("jordan.mp3",loaded());
   amp = new p5.Amplitude();
   
-  
+  resetCanvas();
   gravity = createVector(0,0.2);
-  
+  background(0);
   
   resetButton = createButton("reset");
   resetButton.mousePressed(resetCanvas);
@@ -29,11 +29,12 @@ function loaded(){
 }
 
 function resetCanvas(){
-  background(0);
+  background(0); // only works if background is drawn in setup
+  
 }
 
 function draw() {
-  background(0);
+ 
   vol= amp.getLevel();
   console.log(vol);
   
@@ -41,7 +42,7 @@ function draw() {
   let soundVel =  map(vol,0,0.5,3,15);
 
  
-  if (random(1)<0.9){
+  if (random(1)<0.1){
     fireworks.push(new Firework(-soundVel));
    }
   for (let i = fireworks.length-1; i >=0; i --){
