@@ -18,9 +18,12 @@ class Particle{
 }
 
   show = function(colorVal){
-    stroke(random(255),random(255),random(255));
-    
-  strokeWeight(5)
-    point(this.pos.x, this.pos.y);
+    //fill(random(100,200),random(100,200),random(100,200));
+    //stroke(colorVal,colorVal,colorVal);
+  //strokeWeight(5)
+    //point(this.pos.x, this.pos.y);
+    fill(200);
+    noStroke();
+    rect(this.pos.x,this.pos.y,15,40);
   }
 }

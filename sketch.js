@@ -3,8 +3,11 @@ let gravity;
 
 let song;
 let amp;
-let button;
+let playButton;
+let resetButton;
 let vol;
+
+
 
 function setup() {
   createCanvas(600, 400);
@@ -14,25 +17,28 @@ function setup() {
   
   gravity = createVector(0,0.2);
   
-  
+  background(0);
+  resetButton = createButton("reset");
+  resetButton.mousePressed(resetCanvas);
  
 }
 
 function loaded(){
-  button = createButton("play");
-  button.mousePressed(togglePlaying);
+  playButton = createButton("play");
+  playButton.mousePressed(togglePlaying);
 }
 
-function createNewParticle(){
- 
-}
-function draw() {
+function resetCanvas(){
   background(0);
+}
+
+function draw() {
+  
   vol= amp.getLevel();
   console.log(vol);
   
  
-  let soundVel =  map(vol,0,0.5,2,10);
+  let soundVel =  map(vol,0,0.5,3,15);
 
  
   if (random(1)<0.9){
