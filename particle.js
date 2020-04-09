@@ -29,8 +29,9 @@ class Particle{
     //stroke(colorVal,colorVal,colorVal);
   //strokeWeight(5)
     //point(this.pos.x, this.pos.y);
-    fill(this.randomR,this.randomG,this.randomB);
+    fill(this.randomR,this.randomG,this.randomB,5);
     noStroke();
     rect(this.pos.x,this.pos.y,15,40);
+    //circle(this.pos.x,this.pos.y,20,20);
   }
 }
