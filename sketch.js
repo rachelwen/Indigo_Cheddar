@@ -17,7 +17,7 @@ function setup() {
   
   gravity = createVector(0,0.2);
   
-  background(0);
+  
   resetButton = createButton("reset");
   resetButton.mousePressed(resetCanvas);
  
@@ -33,7 +33,7 @@ function resetCanvas(){
 }
 
 function draw() {
-  
+  background(0);
   vol= amp.getLevel();
   console.log(vol);
   
