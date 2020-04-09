@@ -1,6 +1,6 @@
 let fireworks = [];
 let gravity;
-
+let particles = [];
 let song;
 let amp;
 let playButton;
@@ -9,15 +9,17 @@ let vol;
 
 
 
+
 function setup() {
   createCanvas(600, 400);
-  song = loadSound("jordan.mp3",loaded());
+  song = loadSound("sickelectronicsong2.mp3",loaded());
+
   amp = new p5.Amplitude();
   
   resetCanvas();
   gravity = createVector(0,0.2);
-  background(0);
   
+  background(0);
   resetButton = createButton("reset");
   resetButton.mousePressed(resetCanvas);
  
@@ -34,10 +36,10 @@ function resetCanvas(){
 }
 
 function draw() {
- 
+  
   vol= amp.getLevel();
   console.log(vol);
-  
+
  
   let soundVel =  map(vol,0,0.5,3,15);
 
@@ -50,6 +52,7 @@ function draw() {
     //setTimeout(fireworks[i].show(),2000);
     fireworks[i].show();
   }
+  
 }
 
 
