@@ -1,6 +1,6 @@
 class Firework{
-  constructor(soundVel) {
-  this.firework = new Particle(random(width), height,soundVel);
+  constructor(soundVel,R,G,B) {
+  this.firework = new Particle(random(width), height,soundVel,R,G,B);
   }
 
   update() {
