@@ -10,6 +10,7 @@ let vol;
 let fft;
 let fft2;
 let w;
+let col;
 let soundVel; //bass
 let soundVel2; //mid
 let soundVel3; //high
@@ -44,17 +45,20 @@ function setup() {
     cnv.position(x, y);
     colorMode(HSB)
     sliderBackground = createSlider(0, 360, 200, 1); //slider values for background (left)
-    sliderBackground.position(600+ width / 8, 540);
+    sliderBackground.position(900+ width / 8, 220);
    
     sliderBass = createSlider(0, 255, 300, 1); //slider for bass color( top right)
     sliderMid = createSlider(0, 255, 20, 1); // slider for mid color (middle right)
     sliderHigh = createSlider(0, 255, 60, 1); // treble color, bottom right
 
-    sliderBass.position(600 + width / 8, 600);
-    sliderMid.position(600 + width / 8, 630);
-    sliderHigh.position(600 + width / 8, 660);
+    sliderBass.position(900 + width / 8, 280);
+    sliderMid.position(900 + width / 8, 310);
+    sliderHigh.position(900 + width / 8, 340);
 
     button = createButton('play song');
+    col = color(25, 23, 200, 50);
+    button.style('background-color', col);
+    button.position(680, 545)
     button.mousePressed(toggleSong);
 
     fft = new p5.FFT(0.95, 64); //fft for background

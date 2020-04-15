@@ -12,7 +12,7 @@ let w;
 let soundVel; //bass
 let soundVel2; //mid
 let soundVel3; //high
-
+let col
 
 let bassBars = [];
 let midBars = [];
@@ -51,7 +51,7 @@ function setup() {
     cnv.position(x, y);
 
     scaleSlider = createSlider(10,50,10,1); //slider that controls the scale (top middle)
-    scaleSlider.position(600+width/8, 580);
+    scaleSlider.position(600+width/8, 630);
 
 
     sliderR = createSlider(0, 255, 3, 20); //slider values for background
@@ -77,6 +77,9 @@ function setup() {
     //flowField = new Array(cols * rows);
 
     button = createButton('pause or play');
+    col = color(25, 23, 200, 50);
+    button.style('background-color', col);
+    button.position(680, 555)
     button.mousePressed(toggleSong);
 
     fft = new p5.FFT(0.95, 64); //fft for background

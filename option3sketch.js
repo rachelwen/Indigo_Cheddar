@@ -9,6 +9,7 @@ let highMids = [];
 let ampLev = 256;
 let ampStart = 0;
 let numLines;
+let col;
 
 let sliderR, sliderG, sliderB; //sliders for background
 let sliderR2, sliderG2, sliderB2; //sldiers for foreground
@@ -32,9 +33,12 @@ function preload() {
 function setup() {
   var cnv = createCanvas(400, 400);
   var x = (windowWidth - width) / 2;
-  var y = ((windowHeight - height) - 50) / 2;
+  var y = ((windowHeight - height) + 15) / 2;
   cnv.position(x, y);
   button = createButton('pause or play');
+  col = color(25, 23, 200, 50);
+  button.style('background-color', col);
+  button.position(675, 535)
   button.mousePressed(toggleSong);
   colorMode(RGB);
   fft = new p5.FFT(0.95, 64);
@@ -46,7 +50,7 @@ function setup() {
   noFill();
 
   numLinesSlider = createSlider(1,50,25,1); //slider at top middle
-  numLinesSlider.position(600+width/8, 520)
+  numLinesSlider.position(600+width/8, 580)
 
   sliderR = createSlider(0, 255, 7, 20); //slider values for background (left)
   sliderG = createSlider(0, 255, 96, 20);
