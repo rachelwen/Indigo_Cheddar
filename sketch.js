@@ -19,13 +19,15 @@ let midBars = [];
 let highBars = [];
 
 let inc = 0.1;
-let scl = 10;
+let scl;
 let rows, cols;
 let zoff = 0;
 let fr;
 let newParticles = [];
 let flowField;
-
+let sliderR;
+let sliderG;
+let sliderB;
 let testY;
 
 
@@ -43,7 +45,14 @@ function preload() {
 
 function setup() {
   createCanvas(600, 400);
+ sliderR = createSlider(0,255,3,20);
+ sliderG = createSlider(0,255,52,20);
+ sliderB = createSlider(0,255,115,20);
+
+
+
   w = width/40;
+  scl = 10;
   cols = floor(width / scl);
   rows = floor(height / scl);
   flowField = new Array(cols*rows);
@@ -68,12 +77,11 @@ function setup() {
  
   amp = new p5.Amplitude();
   
-  resetCanvas();
+ 
   gravity = createVector(0,0.2);
   
   
-  resetButton = createButton("reset");
-  resetButton.mousePressed(resetCanvas);
+
 
 
  
@@ -84,13 +92,11 @@ function loaded(){
   playButton.mousePressed(togglePlaying);
 }
 
-function resetCanvas(){
-  background(0); // only works if background is drawn in setup
-  
-}
+
 
 function draw() {
-  background(3, 52, 115)
+  //background(3, 52, 115)
+  background(sliderR.value(),sliderG.value(),sliderB.value())
   
 
 
@@ -98,8 +104,8 @@ function draw() {
   let spectrum = fft.analyze();
   let spectrum2 = fft2.analyze();
 
-beginShape();
-  for(let b = 0; b < spectrum2.length; b++){
+  beginShape();
+    for(let b = 0; b < spectrum2.length; b++){
     stroke(255)
     noFill();
     amp2 = spectrum2[b];
