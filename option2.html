@@ -11,8 +11,13 @@
     body {background-color: #c2e03d; text-align: center; font-family: Arial, Helvetica, sans-serif;}
     p {font-weight: bold;}
     h1 {color: white; margin-bottom: -28px;}
-    #titles {font-weight: bold; padding: 10px}
+    #title {position:absolute; top:10%; left: 40%;font-weight: bold; padding: 10px}
     a{position: relative; color: whitesmoke; font-weight: bold; background-color: rgb(87, 73, 161); padding: 20px; text-decoration: none;}
+    #prevbutton{position:absolute; left:20%; color:white; font-weight: bold; background-color: rgb(87, 73, 161); padding: 20px; text-decoration: none; top: 45%;}
+    #backbutton{position:absolute; left:20%; top:30%;color:white; font-weight: bold; background-color: rgb(87, 73, 161); padding: 20px; text-decoration: none;}
+    #descriptions{position:absolute; width:200px;left:25%; bottom: 10%;}
+    #nextbutton{position:absolute; right:20%; color:white; font-weight: bold; background-color: rgb(87, 73, 161); padding: 20px; text-decoration: none; top: 45%;}
+    
   </style>
 
   <body>
@@ -22,9 +27,10 @@
       </script>
     <script src="option2sketch.js"></script>
     
-    <h1>THE BALL BOUNCE</h1>
-    <p id="titles"> Change the sliders to change the colors of the balls and background! </p>
-    <a href = "index.html">back to home</a>  
-  
-
+    <h1 id = "title">THE BALL BOUNCE</h1>
+    <p id="descriptions"> Change the sliders to change the colors of the balls and background! </p>
+    <a id = "backbutton" href = "index.html">back to home</a>  
+    <a id = "prevbutton" href = "option1.html">previous room</a>  
+    <a id = "nextbutton" href = "option3.html">next room</a>  
+    <script src = "script.js"></script>
 </body></html>

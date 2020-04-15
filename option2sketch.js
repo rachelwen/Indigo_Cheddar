@@ -23,9 +23,6 @@ let sliderBackground; //sliders for background
 let sliderBass, sliderMid, sliderHiBass; //sldiers for foreground
 
 
-l
-
-
 function toggleSong() {
     if (song.isPlaying()) {
         song.pause();
@@ -41,25 +38,25 @@ function preload() {
 function setup() {
     var cnv = createCanvas(400, 400);
     var x = (windowWidth - width) / 2;
-    var y = ((windowHeight - height) + 20) / 2;
+    var y = ((windowHeight - height) - 70) / 2;
     cnv.position(x, y);
     colorMode(HSB)
     sliderBackground = createSlider(0, 360, 200, 1); //slider values for background (left)
-    sliderBackground.position(800+ width / 8, 220);
+    sliderBackground.position(sliderBackground.x+(windowWidth / 2), 300 + windowHeight/2);
 
    
     sliderBass = createSlider(0, 255, 300, 1); //slider for bass color( top right)
     sliderMid = createSlider(0, 255, 20, 1); // slider for mid color (middle right)
     sliderHigh = createSlider(0, 255, 60, 1); // treble color, bottom right
 
-    sliderBass.position(800 + width / 8, 280);
-    sliderMid.position(800 + width / 8, 310);
-    sliderHigh.position(800 + width / 8, 340);
+    sliderBass.position((windowWidth / 2)-sliderBass.width,300 + windowHeight/2);
+    sliderMid.position((windowWidth / 2)-sliderMid.width,325 + windowHeight/2);
+    sliderHigh.position((windowWidth / 2)-sliderHigh.width,350 + windowHeight/2);
 
-    button = createButton('play song');
+    button = createButton('pause or play');
     col = color(25, 23, 200, 50);
     button.style('background-color', col);
-    button.position(600, 545)
+    button.position(windowWidth/2-button.width/2, windowHeight/2+200);
     button.mousePressed(toggleSong);
 
     fft = new p5.FFT(0.95, 64); //fft for background
@@ -102,10 +99,6 @@ function draw() {
 
 
 
-
-
-
-
     if (random(1) < 0.05) {
         bassBars.push(new Firework(-soundVel, sliderBass.value(), 100,100));
     }
@@ -113,9 +106,6 @@ function draw() {
         bassBars[i].update();
         bassBars[i].show();
     }
-
-
-
 
     if (random(1) < 0.05 ) {
         midBars.push(new Firework(-soundVel2, sliderMid.value(),100,100));
@@ -132,11 +122,6 @@ function draw() {
         highBars[i].update();
         highBars[i].show();
     }
-
-
-
-
-
 
 }
 

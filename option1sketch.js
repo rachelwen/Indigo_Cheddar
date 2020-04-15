@@ -46,40 +46,38 @@ function preload() {
 
 function setup() {
     var cnv = createCanvas(400, 400);
-    var x = (windowWidth - width) / 2;
-    var y = ((windowHeight - height) + 30) / 2;
+   var x = (windowWidth - width) / 2;
+  
+    var y = ((windowHeight - height) - 70) / 2;
     cnv.position(x, y);
 
-    scaleSlider = createSlider(10,50,10,1); //slider that controls the scale (top middle)
-    scaleSlider.position(515+width/8, 610);
+    scaleSlider = createSlider(4,30,10,1); //slider that controls the scale (top middle)
+    scaleSlider.position(windowWidth/2-scaleSlider.width/2, windowHeight/2+260);
 
 
     sliderR = createSlider(0, 255, 3, 20); //slider values for background
     sliderG = createSlider(0, 255, 52, 20);
     sliderB = createSlider(0, 255, 115, 20);
 
-    sliderR.position(width / 8 +350, 580);
-    sliderG.position(width / 8 +350, 610);
-    sliderB.position(width / 8 +350, 640);
-
     sliderR2 = createSlider(0, 255, 242, 20); //slider values for background
     sliderG2 = createSlider(0, 255, 162, 20);
     sliderB2 = createSlider(0, 255, 15, 20);
-    sliderR2.position(680+width/8,580);
-    sliderG2.position(680+width/8,610);
-    sliderB2.position(680+width/8,640);
+
+    sliderR.position(sliderR.x+(windowWidth / 2), 300 + windowHeight/2);
+    sliderG.position(sliderG.x+(windowWidth / 2), 325 + windowHeight/2);
+    sliderB.position(sliderB.x+(windowWidth / 2), 350 + windowHeight/2);
+
+    sliderR2.position((windowWidth / 2)-sliderR2.width,300 + windowHeight/2);
+    sliderG2.position((windowWidth / 2)-sliderG2.width,325 + windowHeight/2);
+    sliderB2.position((windowWidth / 2)-sliderB2.width,350 + windowHeight/2);
 
 
     w = width / 40;
-    // scl = scaleSlider.value();
-    // cols = floor(width / scl);
-    // rows = floor(height / scl);
-    //flowField = new Array(cols * rows);
 
     button = createButton('pause or play');
     col = color(25, 23, 200, 50);
     button.style('background-color', col);
-    button.position(580, 555)
+    button.position(windowWidth/2-button.width/2, windowHeight/2+200);
     button.mousePressed(toggleSong);
 
     fft = new p5.FFT(0.95, 64); //fft for background
@@ -155,3 +153,4 @@ function togglePlaying() {
     }
 
 }
+

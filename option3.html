@@ -9,17 +9,24 @@
   <style>
     body {background-color: #f59279; text-align: center; font-family: Arial, Helvetica, sans-serif;}
     h1 {color: white; margin-bottom: -26px;}
-    #titles {font-weight: bold; padding: 10px}
+    #title{position:absolute; top:10%; left: 42.5%;font-weight: bold; padding: 10px}
+    #descriptions{font-weight: bold; padding: 10px;position:absolute; width:200px;left:25%; bottom: 10%;}
     a{position: relative; color: whitesmoke; font-weight: bold; background-color: rgb(87, 73, 161); padding: 20px; text-decoration: none;}
+    #backbutton{position:absolute; left:20%; top:30%;color:white; font-weight: bold; background-color: rgb(87, 73, 161); padding: 20px; text-decoration: none;}
+    #prevbutton{position:absolute; left:20%; color:white; font-weight: bold; background-color: rgb(87, 73, 161); padding: 20px; text-decoration: none; top: 45%;}
+    #nextbutton{position:absolute; right:20%; color:white; font-weight: bold; background-color: rgb(87, 73, 161); padding: 20px; text-decoration: none; top: 45%;}
+    
   </style>
 
   <body>
     <script src="option3sketch.js"></script>
 
     
-    <h1>THE LINE BUMP</h1> 
-    <p id="titles"> Change the sliders to change the colors and amount of lines! </p>
-    <a href = "index.html">back to home</a>
+    <h1 id = "title">THE LINE BUMP</h1> 
+    <p id="descriptions"> Change the sliders to change the colors and amount of lines! </p>
+    
+    <a id = "prevbutton" href = "option1.html">previous room</a>  
+    <a id = "nextbutton" href = "index.html">back home</a> 
    
-
+    <script src = "script.js"></script>
 </body></html>
