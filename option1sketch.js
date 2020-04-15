@@ -27,6 +27,8 @@ let flowField;
 let sliderR, sliderG, sliderB; //sliders for background
 let sliderR2, sliderG2, sliderB2; //sldiers for foreground
 
+let scaleSlider;
+
 
 
 function toggleSong() {
@@ -43,22 +45,33 @@ function preload() {
 
 function setup() {
     createCanvas(600, 400);
+
+    scaleSlider = createSlider(10,50,10,1); //slider that controls the scale (top middle)
+    scaleSlider.position(100+width/8, 650);
+
     sliderR = createSlider(0, 255, 3, 20); //slider values for background
     sliderG = createSlider(0, 255, 52, 20);
     sliderB = createSlider(0, 255, 115, 20);
 
+    sliderR.position(width / 8, 700);
+    sliderG.position(width / 8, 720);
+    sliderB.position(width / 8, 740);
+
     sliderR2 = createSlider(0, 255, 242, 20); //slider values for background
     sliderG2 = createSlider(0, 255, 162, 20);
     sliderB2 = createSlider(0, 255, 15, 20);
-    
+    sliderR2.position(200+width/8,700);
+    sliderG2.position(200+width/8,720);
+    sliderB2.position(200+width/8,740);
+
 
     w = width / 40;
-    scl = 10;
-    cols = floor(width / scl);
-    rows = floor(height / scl);
-    flowField = new Array(cols * rows);
+    // scl = scaleSlider.value();
+    // cols = floor(width / scl);
+    // rows = floor(height / scl);
+    //flowField = new Array(cols * rows);
 
-    button = createButton('play song');
+    button = createButton('pause or play');
     button.mousePressed(toggleSong);
 
     fft = new p5.FFT(0.95, 64); //fft for background
@@ -77,9 +90,13 @@ function loaded() {
 
 function draw() {
     background(sliderR.value(), sliderG.value(), sliderB.value())
+    scl = scaleSlider.value();
+    cols = floor(width / scl);
+    rows = floor(height / scl);
+    flowField = new Array(cols * rows);
 
     let spectrum = fft.analyze();
-    
+
     let bassVal = fft.getEnergy('bass');
     soundVel = map(bassVal, 0, 240, 1, 2);
 

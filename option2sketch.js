@@ -18,8 +18,8 @@ let bassBars = [];
 let midBars = [];
 let highBars = [];
 
-let sliderR, sliderG, sliderB; //sliders for background
-let sliderR2, sliderG2, sliderB2; //sldiers for foreground
+let sliderBackground; //sliders for background
+let sliderBass, sliderMid, sliderHiBass; //sldiers for foreground
 
 
 l
@@ -39,11 +39,17 @@ function preload() {
 
 function setup() {
     createCanvas(600, 400);
-    sliderR = createSlider(0, 255, 120, 20);
-    sliderG = createSlider(0, 255, 52, 20);
-    sliderB = createSlider(0, 255, 115, 20);
+    colorMode(HSB)
+    sliderBackground = createSlider(0, 360, 200, 1); //slider values for background (left)
+    sliderBackground.position(width / 8, 700);
+   
+    sliderBass = createSlider(0, 255, 300, 1); //slider for bass color( top right)
+    sliderMid = createSlider(0, 255, 20, 1); // slider for mid color (middle right)
+    sliderHigh = createSlider(0, 255, 60, 1); // treble color, bottom right
 
-
+    sliderBass.position(200 + width / 8, 700);
+    sliderMid.position(200 + width / 8, 720);
+    sliderHigh.position(200 + width / 8, 740);
 
     button = createButton('play song');
     button.mousePressed(toggleSong);
@@ -58,14 +64,14 @@ function setup() {
 }
 
 function loaded() {
-    playButton = createButton("play");
+    playButton = createButton("pause or play");
     playButton.mousePressed(togglePlaying);
 }
 
 
 
 function draw() {
-    background(sliderR.value(), sliderG.value(), sliderB.value())
+    background(sliderBackground.value(), 100,80)
 
 
     let spectrum = fft.analyze();
@@ -88,8 +94,8 @@ function draw() {
 
 
 
-    if (random(1) < 0.2) {
-        bassBars.push(new Firework(-soundVel, random(100, 255), 0, random(100, 255)));
+    if (random(1) < 0.05) {
+        bassBars.push(new Firework(-soundVel, sliderBass.value(), 100,100));
     }
     for (let i = bassBars.length - 1; i >= 0; i--) {
         bassBars[i].update();
@@ -99,16 +105,16 @@ function draw() {
 
 
 
-    if (random(1) < 0.1 && midVal > 0) {
-        midBars.push(new Firework(-soundVel2, 0, random(100, 255), random(100, 255)));
+    if (random(1) < 0.05 ) {
+        midBars.push(new Firework(-soundVel2, sliderMid.value(),100,100));
     }
     for (let i = midBars.length - 1; i >= 0; i--) {
         midBars[i].update();
         midBars[i].show();
     }
 
-    if (random(1) < 0.1) {
-        highBars.push(new Firework(-soundVel3, 255, 255, 255));
+    if (random(1) < 0.05) {
+        highBars.push(new Firework(-soundVel3, sliderHigh.value(),100,100));
     }
     for (let i = highBars.length - 1; i >= 0; i--) {
         highBars[i].update();
