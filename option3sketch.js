@@ -33,12 +33,12 @@ function preload() {
 function setup() {
   var cnv = createCanvas(400, 400);
   var x = (windowWidth - width) / 2;
-  var y = ((windowHeight - height) + 15) / 2;
+  var y = ((windowHeight - height) + 25) / 2;
   cnv.position(x, y);
   button = createButton('pause or play');
   col = color(25, 23, 200, 50);
   button.style('background-color', col);
-  button.position(590, 535)
+  button.position(590, 545)
   button.mousePressed(toggleSong);
   colorMode(RGB);
   fft = new p5.FFT(0.95, 64);

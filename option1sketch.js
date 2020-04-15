@@ -47,7 +47,7 @@ function preload() {
 function setup() {
     var cnv = createCanvas(400, 400);
     var x = (windowWidth - width) / 2;
-    var y = ((windowHeight - height) + 50) / 2;
+    var y = ((windowHeight - height) + 30) / 2;
     cnv.position(x, y);
 
     scaleSlider = createSlider(10,50,10,1); //slider that controls the scale (top middle)
