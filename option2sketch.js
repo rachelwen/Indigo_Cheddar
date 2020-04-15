@@ -45,20 +45,21 @@ function setup() {
     cnv.position(x, y);
     colorMode(HSB)
     sliderBackground = createSlider(0, 360, 200, 1); //slider values for background (left)
-    sliderBackground.position(900+ width / 8, 220);
+    sliderBackground.position(800+ width / 8, 220);
+
    
     sliderBass = createSlider(0, 255, 300, 1); //slider for bass color( top right)
     sliderMid = createSlider(0, 255, 20, 1); // slider for mid color (middle right)
     sliderHigh = createSlider(0, 255, 60, 1); // treble color, bottom right
 
-    sliderBass.position(900 + width / 8, 280);
-    sliderMid.position(900 + width / 8, 310);
-    sliderHigh.position(900 + width / 8, 340);
+    sliderBass.position(800 + width / 8, 280);
+    sliderMid.position(800 + width / 8, 310);
+    sliderHigh.position(800 + width / 8, 340);
 
     button = createButton('play song');
     col = color(25, 23, 200, 50);
     button.style('background-color', col);
-    button.position(680, 545)
+    button.position(600, 545)
     button.mousePressed(toggleSong);
 
     fft = new p5.FFT(0.95, 64); //fft for background

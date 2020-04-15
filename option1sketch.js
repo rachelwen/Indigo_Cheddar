@@ -51,23 +51,23 @@ function setup() {
     cnv.position(x, y);
 
     scaleSlider = createSlider(10,50,10,1); //slider that controls the scale (top middle)
-    scaleSlider.position(600+width/8, 630);
+    scaleSlider.position(515+width/8, 610);
 
 
     sliderR = createSlider(0, 255, 3, 20); //slider values for background
     sliderG = createSlider(0, 255, 52, 20);
     sliderB = createSlider(0, 255, 115, 20);
 
-    sliderR.position(width / 8 +400, 600);
-    sliderG.position(width / 8 +400, 630);
-    sliderB.position(width / 8 +400, 660);
+    sliderR.position(width / 8 +350, 580);
+    sliderG.position(width / 8 +350, 610);
+    sliderB.position(width / 8 +350, 640);
 
     sliderR2 = createSlider(0, 255, 242, 20); //slider values for background
     sliderG2 = createSlider(0, 255, 162, 20);
     sliderB2 = createSlider(0, 255, 15, 20);
-    sliderR2.position(800+width/8,600);
-    sliderG2.position(800+width/8,630);
-    sliderB2.position(800+width/8,660);
+    sliderR2.position(680+width/8,580);
+    sliderG2.position(680+width/8,610);
+    sliderB2.position(680+width/8,640);
 
 
     w = width / 40;
@@ -79,7 +79,7 @@ function setup() {
     button = createButton('pause or play');
     col = color(25, 23, 200, 50);
     button.style('background-color', col);
-    button.position(680, 555)
+    button.position(580, 555)
     button.mousePressed(toggleSong);
 
     fft = new p5.FFT(0.95, 64); //fft for background
