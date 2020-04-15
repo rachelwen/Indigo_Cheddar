@@ -41,7 +41,7 @@ function preload() {
 function setup() {
     var cnv = createCanvas(400, 400);
     var x = (windowWidth - width) / 2;
-    var y = ((windowHeight - height)) / 2;
+    var y = ((windowHeight - height) + 20) / 2;
     cnv.position(x, y);
     colorMode(HSB)
     sliderBackground = createSlider(0, 360, 200, 1); //slider values for background (left)
