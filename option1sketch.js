@@ -13,6 +13,7 @@ let soundVel; //bass
 let soundVel2; //mid
 let soundVel3; //high
 
+
 let bassBars = [];
 let midBars = [];
 let highBars = [];
@@ -44,25 +45,29 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(600, 400);
+    var cnv = createCanvas(400, 400);
+    var x = (windowWidth - width) / 2;
+    var y = ((windowHeight - height) + 50) / 2;
+    cnv.position(x, y);
 
     scaleSlider = createSlider(10,50,10,1); //slider that controls the scale (top middle)
-    scaleSlider.position(100+width/8, 650);
+    scaleSlider.position(600+width/8, 580);
+
 
     sliderR = createSlider(0, 255, 3, 20); //slider values for background
     sliderG = createSlider(0, 255, 52, 20);
     sliderB = createSlider(0, 255, 115, 20);
 
-    sliderR.position(width / 8, 700);
-    sliderG.position(width / 8, 720);
-    sliderB.position(width / 8, 740);
+    sliderR.position(width / 8 +400, 600);
+    sliderG.position(width / 8 +400, 630);
+    sliderB.position(width / 8 +400, 660);
 
     sliderR2 = createSlider(0, 255, 242, 20); //slider values for background
     sliderG2 = createSlider(0, 255, 162, 20);
     sliderB2 = createSlider(0, 255, 15, 20);
-    sliderR2.position(200+width/8,700);
-    sliderG2.position(200+width/8,720);
-    sliderB2.position(200+width/8,740);
+    sliderR2.position(800+width/8,600);
+    sliderG2.position(800+width/8,630);
+    sliderB2.position(800+width/8,660);
 
 
     w = width / 40;
@@ -78,7 +83,11 @@ function setup() {
     fft2 = new p5.FFT(0.9, 64); // second fft for the foreground
 
     gravity = createVector(0, 0.2);
+  }
+  
 
+  function windowResized(){
+    centerCanvas();
 }
 
 function loaded() {

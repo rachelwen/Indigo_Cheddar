@@ -30,7 +30,10 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(600, 600);
+  var cnv = createCanvas(400, 400);
+  var x = (windowWidth - width) / 2;
+  var y = ((windowHeight - height) - 50) / 2;
+  cnv.position(x, y);
   button = createButton('pause or play');
   button.mousePressed(toggleSong);
   colorMode(RGB);
@@ -43,26 +46,28 @@ function setup() {
   noFill();
 
   numLinesSlider = createSlider(1,50,25,1); //slider at top middle
-  numLinesSlider.position(100+width/8, 650)
+  numLinesSlider.position(600+width/8, 520)
 
   sliderR = createSlider(0, 255, 7, 20); //slider values for background (left)
   sliderG = createSlider(0, 255, 96, 20);
   sliderB = createSlider(0, 255, 65, 20);
 
-  sliderR.position(width/8,700);
-  sliderG.position(width/8,720);
-  sliderB.position(width/8,740);
+  sliderR.position(400+ width/8,550);
+  sliderG.position(400+ width/8,580);
+  sliderB.position(400+ width/8,610);
 
   sliderR2 = createSlider(0, 255, 242, 20); //slider values for line color(right)
   sliderG2 = createSlider(0, 255, 107, 20);
   sliderB2 = createSlider(0, 255, 107, 20);
 
-  sliderR2.position(200+width/8,700);
-  sliderG2.position(200+width/8,720);
-  sliderB2.position(200+width/8,740);
+  sliderR2.position(800+width/8,550);
+  sliderG2.position(800+width/8,580);
+  sliderB2.position(800+width/8,610);
 
+}
 
-
+function windowResized(){
+  centerCanvas();
 }
 
 function draw() {

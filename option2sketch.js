@@ -38,18 +38,21 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(600, 400);
+    var cnv = createCanvas(400, 400);
+    var x = (windowWidth - width) / 2;
+    var y = ((windowHeight - height)) / 2;
+    cnv.position(x, y);
     colorMode(HSB)
     sliderBackground = createSlider(0, 360, 200, 1); //slider values for background (left)
-    sliderBackground.position(width / 8, 700);
+    sliderBackground.position(600+ width / 8, 540);
    
     sliderBass = createSlider(0, 255, 300, 1); //slider for bass color( top right)
     sliderMid = createSlider(0, 255, 20, 1); // slider for mid color (middle right)
     sliderHigh = createSlider(0, 255, 60, 1); // treble color, bottom right
 
-    sliderBass.position(200 + width / 8, 700);
-    sliderMid.position(200 + width / 8, 720);
-    sliderHigh.position(200 + width / 8, 740);
+    sliderBass.position(600 + width / 8, 600);
+    sliderMid.position(600 + width / 8, 630);
+    sliderHigh.position(600 + width / 8, 660);
 
     button = createButton('play song');
     button.mousePressed(toggleSong);
@@ -61,6 +64,10 @@ function setup() {
 
 
     gravity = createVector(0, 0.2);
+}
+
+function windowResized(){
+    centerCanvas();
 }
 
 function loaded() {
