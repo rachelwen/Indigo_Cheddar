@@ -3,10 +3,12 @@ let gravity;
 let particles = [];
 let song;
 //let amp;
+let amp2;
 let playButton;
 let resetButton;
 let vol;
 let fft;
+let fft2;
 let w;
 let soundVel; //bass
 let soundVel2; //mid
@@ -17,13 +19,14 @@ let midBars = [];
 let highBars = [];
 
 let inc = 0.1;
-let scl = 20;
+let scl = 10;
 let rows, cols;
 let zoff = 0;
 let fr;
 let newParticles = [];
 let flowField;
 
+let testY;
 
 
 function toggleSong() {
@@ -35,12 +38,12 @@ function toggleSong() {
 }
 
 function preload() {
-  song = loadSound('sickelectronicsong2.mp3');
+  song = loadSound('option1.mp3');
 }
 
 function setup() {
   createCanvas(600, 400);
-
+  w = width/40;
   cols = floor(width / scl);
   rows = floor(height / scl);
   flowField = new Array(cols*rows);
@@ -60,8 +63,9 @@ function setup() {
 //background(0);
   
   //fft = new p5.FFT(0.90, 64);
-  fft = new p5.FFT(0.99, 64);
-
+  fft = new p5.FFT(0.95, 64); //fft for background
+  fft2 = new p5.FFT(0.9,64); // second fft for the foreground
+ 
   amp = new p5.Amplitude();
   
   resetCanvas();
@@ -86,12 +90,47 @@ function resetCanvas(){
 }
 
 function draw() {
-  background(0)
+  background(3, 52, 115)
   
 
 
 
   let spectrum = fft.analyze();
+  let spectrum2 = fft2.analyze();
+
+beginShape();
+  for(let b = 0; b < spectrum2.length; b++){
+    stroke(255)
+    noFill();
+    amp2 = spectrum2[b];
+    testY = map(amp2, 0, 256, height-10, 0);
+    //vertex(b*w, testY);
+  }
+  endShape();
+
+
+  for(let b = 0; b < spectrum2.length; b++){
+    stroke(255)
+    noFill();
+    let amp2 = spectrum2[b];
+    let y = map(amp2, 0, 256, height, height/2);
+    //rect(b*w, height -50, 10, y-height);
+   // ellipse((b*w),height/2,10,y-height);
+  //  if(random(1)<0.2){
+  //  highBars.push(new Firework(-soundVel3,255,255,255));
+  //  for (let i =  highBars.length-1; i >=0; i --){
+  //     highBars[i].update();
+  //     highBars[i].show();
+  //   }
+  // }
+   
+
+  }
+
+
+
+
+
   let bassVal = fft.getEnergy('bass');
   soundVel= map(bassVal, 0, 240, 1, 2);
  
@@ -120,14 +159,14 @@ function draw() {
       v.setMag(1);
       flowField[index] = v;
       xoff += inc;
-      stroke(255);
-      strokeWeight(1);
+      stroke(242, 162, 12);
+      strokeWeight(2);
       push()
       translate(x * scl, y * scl)
-      rotate(v.heading());
+      rotate(v.heading()/PI); // divide by PI make the X's
       
      line(0, 0, scl, 0)
-     //ellipse(0,0,ampMap,ampMap)
+     
      
       pop()
     }
@@ -136,24 +175,24 @@ function draw() {
     
   }
 
-  for(let j = 0; j < newParticles.length; j++){
-    newParticles[j].follow(flowField);
-    newParticles[j].edges();
-    newParticles[j].show();
-    newParticles[j].update();
-  }
+  // for(let j = 0; j < newParticles.length; j++){
+  //   newParticles[j].follow(flowField);
+  //   newParticles[j].edges();
+  //   newParticles[j].show();
+  //   newParticles[j].update();
+  // }
 
 
 
   if (random(1)<0.2){
-    // bassBars.push(new Firework(-soundVel,random(100,255),0,random(100,255)));
+     //bassBars.push(new Firework(-soundVel,random(100,255),0,random(100,255)));
    // bassBars.push(new NewParticle(soundVel,200,2,0))
    }
   for (let i = bassBars.length-1; i >=0; i --){
-    if(bassVal>0 ){
-    bassBars[i].follow(flowField)
-    }
-    bassBars[i].edges();
+    // if(bassVal>0 ){
+    // bassBars[i].follow(flowField)
+    // }
+    // bassBars[i].edges();
     bassBars[i].update();
     bassBars[i].show();
   }
@@ -163,7 +202,7 @@ function draw() {
  
   if (random(1)<0.1 && midVal>0){
    // midBars.push(new Firework(-soundVel2,0,random(100,255),random(100,255)));
-   //midBars.push(new NewParticle(soundVel,0,200,0))
+  // midBars.push(new NewParticle(soundVel,0,200,0))
    }
   for (let i = midBars.length-1; i >=0; i --){
     midBars[i].follow(flowField);
@@ -179,6 +218,9 @@ function draw() {
   //   highBars[i].update();
   //   highBars[i].show();
   // }
+
+  
+
 
   
   

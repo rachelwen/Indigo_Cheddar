@@ -32,8 +32,12 @@ class Particle{
     //point(this.pos.x, this.pos.y);
     fill(this.R,this.G,this.B,96);
     noStroke();
-    rect(this.pos.x,this.pos.y,15,40);
-    //circle(this.pos.x,this.pos.y,20,20);
+    //rect(this.pos.x,this.pos.y,15,40);
+    circle(this.pos.x,this.pos.y,20,20);
+    // beginShape();
+    // vertex(this.pos.x,this.pos.y)
+    // endShape();
+    //point(this.pos.x,this.pos.y)
   }
 }
 
