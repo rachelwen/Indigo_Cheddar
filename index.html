@@ -8,22 +8,32 @@
 
   <style>
     body {background-color: #4882d9; text-align: center; font-family:Arial, Helvetica, sans-serif;}
-    a {padding: 30px; text-decoration: none;}
-    #links {position: relative; top: 130px; right: 250px; color: whitesmoke; font-weight: bold; background-color: rgb(87, 73, 161);}
+    a {padding: 10px; }
+    #links {display:block;   color: whitesmoke; font-weight: bold;}
+    .rooms{position: absolute;top:50%; left:48%;padding:0%;height:30px;}
+    .text{
+      position:absolute; top: 35%; left:38%;
+      text-align: center;
+    }
     #heading {letter-spacing: 10px; color: white;}
-    #gif {position: relative; top: 30px; left: 190px;}
-    h2{font-style:italic}
+    h2{color:white}
   </style>
 
   <body>
-    <h1 id="heading">INDIGO CHEDDAR</h1>
-    <h2> the virtual music visualiser </h2>
+    <script src="sketch.js">
+    </script>
+    <script src="homepageParticle.js">
+    </script>
+    <div class = "text">
+      <h1 id="heading">INDIGO CHEDDAR</h1>
+      <h2> the virtual music visualiser </h2>
+    </div>
 
-   <img src="tenor.gif" alt="wave gif" id ="gif">
-    
-  <a href = "option1.html" id="links">ROOM 1</a>
-  <a href = "option2.html" id="links">ROOM 2</a>
-  <a href = "option3.html" id="links">ROOM 3</a>
+    <div class = "rooms">
+      <a href = "option1.html" id="links">ROOM 1</a>
+      <a href = "option2.html" id="links">ROOM 2</a>
+      <a href = "option3.html" id="links">ROOM 3</a>
+    </div>
 
 
 </body></html>
